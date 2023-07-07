@@ -37,8 +37,4 @@ public class ClienteServiceImpl implements IClienteService {
         return clienteDao.findById(id).orElse(null);
     }
 
-    @Transactional
-    public Cliente update(Cliente cliente) {
-        return clienteDao.save(cliente);
-    }
 }

@@ -13,5 +13,4 @@ public interface IClienteService {
 
     public Cliente findById(Long id);
 
-    public Cliente update(Cliente cliente);
 }

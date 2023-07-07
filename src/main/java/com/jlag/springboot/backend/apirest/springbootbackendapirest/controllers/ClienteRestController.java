@@ -35,12 +35,15 @@ public class ClienteRestController {
 
     @PutMapping("/clientes/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cliente clienteModificado(@RequestBody Cliente cliente, @PathVariable Long id) {
+    public Cliente update(@RequestBody Cliente cliente, @PathVariable Long id) {
+
         Cliente clienteActual = clienteService.findById(id);
+
         clienteActual.setApellido(cliente.getApellido());
-        clienteActual.setNombre((cliente.getNombre()));
+        clienteActual.setNombre(cliente.getNombre());
         clienteActual.setEmail(cliente.getEmail());
-        return clienteActual;
+
+        return clienteService.save(clienteActual);
     }
 
     @DeleteMapping("/clientes/{id}")
